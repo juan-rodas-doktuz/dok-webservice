@@ -1,7 +1,9 @@
 <?php
-require_once "lib/nusoap.php";
+//require_once "lib/nusoap.php";
 
-function myFirstRequest($msg) {
+function HelloWorld($msg) {
+
+    return $msg;
     /*if ($msg == "1") {
         return 'Hola1';//json_encode(array("msg" => "Información de paciente"));
 	} else if ($msg == "2") {
@@ -13,11 +15,23 @@ function myFirstRequest($msg) {
 	}*/
 }
 
-$server = new soap_server();
+
+/* Map of the service operation "ExamResult" to php function "ExamResult" */
+$operations = array("HelloWorld" => "HelloWorld");
+$opParams   = array("HelloWorld" => "MIXED");
+
+$svr = new WSService(array("wsdl"       => "HelloWorld.wsdl",
+                           "operations" => $operations,
+                           "opParams"   => $opParams));
+
+/* Reply the client */
+$svr->reply();
+
+/*$server = new soap_server();
 $server->configureWSDL("wsdl_server_paciente", "urn:wsdl_server_paciente");
 
 $namespace = "http://local.doktuz.app/dok-webservice/wsdl_server_paciente.php";
-/* Register your function */
+// Register your function
 $server->register("myFirstRequest",      // Register Method
  array('msg' => 'xsd:string'),    // Method Parameter
  array('return' => 'xsd:string'), // Response
@@ -29,5 +43,5 @@ $server->register("myFirstRequest",      // Register Method
 );
 
  $POST_DATA = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : '';
- 
- @$server->service($POST_DATA);
+
+ @$server->service($POST_DATA);*/

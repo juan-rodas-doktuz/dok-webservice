@@ -1,8 +1,18 @@
 <?php
 
-$client = new SoapClient("http://local.doktuz.app/dok-webservice/wsdl_server_paciente.php?wsdl");
+$wsclient = new WSClient( array(
+                "wsdl" => "HelloWorld.wsdl",
+                "to" => "https://wd2.doktuz.com/dok-webservice/wsdl_server,php"));
+
+$proxy = $wsclient->getProxy();
+
+$ret_val = $proxy->HelloWorld(array("$msg" => "Hola Mundo");
+
+print_r($ret_val);
+
+//$client = new SoapClient("http://local.doktuz.app/dok-webservice/wsdl_server_paciente.php?wsdl");
 //$result = $client->myFirstRequest(array("msg" => "Hola mundo"));
-$result = $soapclient->call( 'myFirstRequest' , array("msg" => "dasdasda") ); 
+//$result = $soapclient->call( 'myFirstRequest' , array("msg" => "dasdasda") );
 
 /*require_once "lib/nusoap.php";
 
