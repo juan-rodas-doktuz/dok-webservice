@@ -1,7 +1,6 @@
 <?php
-header('Content-Type: application/json');
-
 require_once "lib/nusoap.php";
+
 $client = new nusoap_client("https://wd2.doktuz.com/dok-webservice/wsdl_server.php");
 
 $error = $client->getError();
