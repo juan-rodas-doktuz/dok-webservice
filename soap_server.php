@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+
 class Api {
 
     // Función sin parametros
@@ -9,6 +9,7 @@ class Api {
 
     // Función con parametros
     function HolaMundoParams($nombre, $apellidos){
+      header('Content-Type: application/json');
       $return = array("nombre" => $nombre, "apellidos" => $apellidos);
       return json_encode($return);
     }
