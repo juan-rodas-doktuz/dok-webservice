@@ -2,8 +2,15 @@
 
 class Api {
 
+    // Función sin parametros
     function HolaMundo() {
         return "Hello";
+    }
+
+    // Función con parametros
+    function HolaMundoParams($nombre, $apellidos){
+      $return = array("nombre" => $nombre, "apellidos" => $apellidos);
+      return json_encode($return);
     }
 
 }
