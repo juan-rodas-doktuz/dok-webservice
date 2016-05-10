@@ -9,7 +9,7 @@ class Api {
 }
 
 //when in non-wsdl mode the uri option must be specified
-$options=array('uri'=>'http://local.doktuz.app/dok-webservice/');
+$options=array('uri'=>'https://wd2.doktuz.com/dok-webservice/');
 //create a new SOAP server
 $server = new SoapServer(NULL,$options);
 //attach the API class to the SOAP Server
