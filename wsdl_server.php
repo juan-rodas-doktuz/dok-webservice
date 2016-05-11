@@ -5,7 +5,7 @@ $namespace = "https://wd2.doktuz.com/dok-webservice/wsdl_server.php";
 
 function HelloWorld($msg) {
 
-    return $msg;
+    return json_decode("msg" => $msg);
 
 }
 

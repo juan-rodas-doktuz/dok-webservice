@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json');
+
 error_reporting(E_ALL);
 
 ini_set('display_errors', 1);
@@ -15,4 +17,4 @@ if ($error) {
 
 $result = $client->call("HelloWorld", array( "msg" => "Utilizando Nusoap" ));
 
-print_r($result);
+return $result;
