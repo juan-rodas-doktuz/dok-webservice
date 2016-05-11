@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+
 ini_set('display_errors', 1);
 
 require_once("lib/nusoap.php");
@@ -11,6 +12,6 @@ if ($error) {
     echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
 }
 
-$result = $client->call("HelloWorld", array("msg" => "utilizando Nusoap"));
+$result = $client->call("HelloWorld", "Utilizando Nusoap");
 
 return $result;
