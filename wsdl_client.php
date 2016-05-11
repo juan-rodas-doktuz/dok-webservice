@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1)
+
 require_once "lib/nusoap.php";
 
 $client = new nusoap_client("https://wd2.doktuz.com/dok-webservice/wsdl_server.php");
