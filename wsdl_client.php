@@ -12,6 +12,6 @@ if ($error) {
     echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
 }
 
-$result = $client->call("HelloWorld", "Utilizando Nusoap");
+$result = $client->call("HelloWorld", array("msg" => "Utilizando Nusoap" ));
 
 return $result;
