@@ -9,30 +9,30 @@ function HelloWorld($msg) {
 
 }
 
-$server = new soap_server();
+  $server = new soap_server();
 
-// Configure our WSDL
-$server->configureWSDL("HelloWorld");
+  // Configure our WSDL
+  $server->configureWSDL("HelloWorld");
 
-// Registrar Servicio
-$server->register(
-    // method name:
-    'HelloWorld',
-    // parameter list:
-    array('msg'=>'xsd:string'),
-    // return value(s):
-    array('return'=>'xsd:string'),
-    // namespace:
-    $namespace,
-    // soapaction: (use default)
-    false,
-    // style: rpc or document
-    'rpc',
-    // use: encoded or literal
-    'encoded',
-    // description: documentation for the method
-    'Simple Hello World Method'
-);
+  // Registrar Servicio
+  $server->register(
+      // method name:
+      'HelloWorld',
+      // parameter list:
+      array('msg'=>'xsd:string'),
+      // return value(s):
+      array('return'=>'xsd:string'),
+      // namespace:
+      $namespace,
+      // soapaction: (use default)
+      false,
+      // style: rpc or document
+      'rpc',
+      // use: encoded or literal
+      'encoded',
+      // description: documentation for the method
+      'Simple Hello World Method'
+  );
 
 // Get our posted data if the service is being consumed
    // otherwise leave this data blank.
@@ -40,5 +40,5 @@ $server->register(
 
    // pass our posted data (or nothing) to the soap service
    $server->service($POST_DATA);
-   
+
 exit();
