@@ -12,11 +12,6 @@ if ($error) {
     echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
 }
 
-// Get our posted data if the service is being consumed
- // otherwise leave this data blank.
- $POST_DATA = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : '';
-
- // pass our posted data (or nothing) to the soap service
- $server->service($POST_DATA);
+$result = $client->call("HelloWorld", array("msg" => "Utilizando Nusoap" ));
 
 return $result;

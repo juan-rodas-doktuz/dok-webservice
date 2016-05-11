@@ -34,6 +34,11 @@ $server->register(
     'Simple Hello World Method'
 );
 
-$server->service($HTTP_RAW_POST_DATA);
+// Get our posted data if the service is being consumed
+   // otherwise leave this data blank.
+   $POST_DATA = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : '';
 
+   // pass our posted data (or nothing) to the soap service
+   $server->service($POST_DATA);
+   
 exit();
