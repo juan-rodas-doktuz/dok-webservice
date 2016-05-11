@@ -12,26 +12,17 @@ function HelloWorld($msg) {
   $server = new soap_server();
 
   // Configure our WSDL
-  $server->configureWSDL("HelloWorld");
+  $server->configureWSDL("HelloWorld", "urn:HelloWorld");
 
   // Registrar Servicio
-  $server->register(
-      // method name:
-      'HelloWorld',
-      // parameter list:
-      array('msg'=>'xsd:string'),
-      // return value(s):
-      array('return'=>'xsd:string'),
-      // namespace:
-      $namespace,
-      // soapaction: (use default)
-      false,
-      // style: rpc or document
-      'rpc',
-      // use: encoded or literal
-      'encoded',
-      // description: documentation for the method
-      'Simple Hello World Method'
+  $server->register("HelloWorld",
+    array("msg" => "xsd:string"),
+    array("return" => "xsd:string"),
+    "urn:HelloWorld",
+    "urn:HelloWorld#HelloWorld",
+    "rpc",
+    "encoded",
+    "Nos da una lista de productos de cada categoría"
   );
 
 // Get our posted data if the service is being consumed
