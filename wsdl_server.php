@@ -3,7 +3,7 @@ require_once "lib/nusoap.php";
 
 function HelloWorld($msg) {
 
-    return json_encode( array( "servicio" => $msg ), true);
+    return "Hola mundo";
 
 }
 
